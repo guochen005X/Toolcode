@@ -1,0 +1,46 @@
+本地仓库关联远程仓库
+1.首先在github网页进入你的账户，创建一个仓库，xxx名字可以与本地仓库相同也可以不同。
+2.点击new create后其实会提示你需要输入的命令。
+一般类似这样git remote add origin git@github.com:github账户名/xxx.git
+3.检查是否有公匙
+ls -al ~/.ssh
+如果有则会显示类似的以下几个文件
+id_rsa.pub
+id_ecdsa.pub
+id_ed25519.pub
+
+如果没有，则需要生成公匙
+1.ssh-keygen -t rsa -b 4096 -C "your_email@163.com"
+2.会提示Enter a file in which to save the key (/home/you/.ssh/id_rsa):
+只需要按回车就好
+3.会提示Enter passphrase (empty for no passphrase):
+输入你想要设置的密码，但是可以直接按回车。我就是直接按的回车。
+4.Enter same passphrase again:
+再次输入密码
+
+再次检查
+ls -al ~/.ssh
+
+4.激活公匙到ssh-agent
+输入：eval "$(ssh-agent -s)"
+则显示 Agent pid ****
+
+5.添加公匙到ssh-agent
+ssh-add ~/.ssh/id_rsa
+
+
+
+
+
+
+6. 复制公匙
+sudo apt-get install xclip
+xclip -sel clip < ~/.ssh/id_rsa.pub
+
+7.将剪贴板上的公匙复制到github上。
+github有一个setting->ssh and gpg keys -> new ssh key -> 粘贴
+
+
+
+
+

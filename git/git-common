@@ -1,0 +1,28 @@
+1.安装git 
+sudo apt-get install git
+
+2.创建一个文件夹，并进入该文件夹。打开终端：
+git init 将该文件夹做为一个仓库
+*当前文件夹下会出现一个.git文件夹
+
+
+3.打开.git文件夹，找到config文件，在最后加上一句话
+[user]
+email=your email
+name=your name
+
+4.将文件添加到跟踪状态（可以直接add 整个文件夹，或者当前目录）
+git add xxx
+
+5.查看git状态,给出一些跟踪或者修改状态的提示，或者错误的提示。
+git status
+
+6.提交
+git commmit -m "提示语言"
+
+
+
+
+
+
+
