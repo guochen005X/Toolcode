@@ -24,3 +24,6 @@ conda config --add channels xxx
 
 9.克隆虚拟环境
 conda create -n 新虚拟环境名称 --clone 旧虚拟环境名称
+
+10.搜索某个包在conda中有哪些版本
+conda search ******
