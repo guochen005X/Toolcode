@@ -1,0 +1,26 @@
+1.创建环境
+conda create -n xxx python=3.5
+
+2.查看虚拟环境
+conda env list 
+
+3.激活虚拟环境
+conda activate xxx
+
+4.关闭虚拟环境
+conda deactivate
+
+5.安装包
+conda install xxx
+
+6.删除包
+conda remove xxx
+
+7.删除虚拟环境
+conda remove -n xxx --all
+
+8.添加某个通道
+conda config --add channels xxx
+
+9.克隆虚拟环境
+conda create -n 新虚拟环境名称 --clone 旧虚拟环境名称

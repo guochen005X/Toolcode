@@ -20,6 +20,9 @@ git status
 6.提交
 git commmit -m "提示语言"
 
+7.提交给远程仓库
+git push -u origin master
+
 
 
 
