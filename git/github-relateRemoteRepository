@@ -2,6 +2,12 @@
 1.首先在github网页进入你的账户，创建一个仓库，xxx名字可以与本地仓库相同也可以不同。
 2.点击new create后其实会提示你需要输入的命令。
 一般类似这样git remote add origin git@github.com:github账户名/xxx.git
+
+****如果自己很傻吊的在创建新仓库是选择了初始一个readme文件，在之后的git push可能会报错。
+那么需要下面命令
+git pull origin master （就是合代码的意思，将远程和本地的更新合并）
+在git push
+
 3.检查是否有公匙
 ls -al ~/.ssh
 如果有则会显示类似的以下几个文件
