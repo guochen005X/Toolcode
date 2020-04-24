@@ -23,6 +23,48 @@ git commmit -m "提示语言"
 7.提交给远程仓库
 git push -u origin master
 
+将本地仓库的更新推送到远程仓库：
+git push origin master
+*解释* origin 时远程关联仓库的默认命名，master表示推送的是本地master分支。
+
+版本回退：
+git checkout --hard HEAD^   (回退到上一版本）
+
+下载仓库中的指定文件夹的内容：
+例如想下载我git_dir仓库下的test_folder文件夹，
+该文件夹的链接是：https://github.com/guochen005X/git_dir/tree/master/test_folder
+那么此时使用：svn checkout https://github.com/guochen005X/git_dir/trunk/test_folder
+就是将tree/master 替换成trunk就可以。
+
+
+git删除指定文件夹/文件
+1.在本地仓库删除指定文件
+git rm 文件名名称
+
+2.在本地仓库删除指定文件夹
+git rm -r 文件夹/
+
+3.提交修改
+git commit -m"删除文件夹"
+
+4、推送到远程仓库
+git push origin master
+
+上面的方法会把对应的本地文件也删除掉，如果不想把本地文件删除，只把缓存区中的对应部分删除，则加上--cached
+git rm --cached 文件 //本地中该文件不会被删除
+git rm -r  --cached  文件夹 //删除文件夹
+
+
+
+git add -A 和 git add . 的区别
+git add -A和 git add .   git add -u在功能上看似很相近，但还是存在一点差别
+
+git add . ：他会监控工作区的状态树，使用它会把工作时的所有变化提交到暂存区，包括文件内容修改(modified)以及新文件(new)，但不包括被删除的文件。
+
+git add -u ：他仅监控已经被add的文件（即tracked file），他会将被修改的文件提交到暂存区。add -u 不会提交新文件（untracked file）。（git add --update的缩写）
+
+git add -A ：是上面两个功能的合集（git add --all的缩写）
+
 
 
 
