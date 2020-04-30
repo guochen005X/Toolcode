@@ -1,0 +1,5 @@
+1.使用conda 管理cuda cudnn
+首先需要系统安装显卡驱动以及cuda cudnn
+然后使用conda 在各个虚拟环境中安装需要的版本cuda cudnn
+但是conda 安装cuda的版本不能大于系统本身安装的版本
+conda install cudatoolkit=8.0
