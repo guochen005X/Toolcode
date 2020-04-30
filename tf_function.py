@@ -315,6 +315,9 @@ import tensorflow as tf
         tf.nn.conv3d(input, filter, strides, padding, name=None) 	在给定的5D input与 filter下计算3D卷积
         输入shape为[batch, in_depth, in_height, in_width, in_channels]
 
+        tf.contrib.slim.conv2d(input,输出通道, [卷积核大小]，stride(int), padding)#默认自带激活函数relu
+        tf.contrib.slimconv2d(input,num_filters_list[1], [3,3], 2,'VALID')
+
     3.池化函数
         tf.nn.avg_pool(value, ksize, strides, padding,
         data_format=’NHWC’, name=None) 	平均方式池化
@@ -340,6 +343,12 @@ import tensorflow as tf
 
     5.损失函数（Losses）
         tf.nn.l2_loss(t, name=None) 	output = sum(t ** 2) / 2
+        tf.nn.sparse_softmax_cross_entropy_with_logits(label=one-hot类型)
+        #下面函数的label需要为一个概率值，同时相加为1.0
+        #返回值为列表或者数组，每一个logit和label的误差，一起返回batch_size个
+        tf.nn.softmax_cross_entropy_with_logits(    _sentinel=None,labels=None,logits=None,dim=-1, name=None)
+
+
         tf.nn.softmax_cross_entropy_with_logits_v2(labels, logits, axis=None, name=None)
 
 
