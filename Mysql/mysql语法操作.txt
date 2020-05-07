@@ -1,0 +1,40 @@
+1.创建数据库
+create database test
+
+1.1删除数据库
+drop database test
+
+2.进入数据库
+use test
+
+3.创建表
+create table t1(id int auto_increment primary key, name char(10)) engine=innodb default charset=utf8;
+auto_increment primary key自增同时为主键
+default charset=utf8 默认编码为utf8可以输入中文
+
+4.显示表的内容
+select * from t1;#显示所有列的内容
+
+5.插入数据
+insert into t1(id,name) value(8,'guoguo11')
+
+6.添加表字段
+#如果卡住，先退出数据库，再进试试
+alter table test add test_col char(10) not Null;
+
+7.修改某个表的字段名称及指定为空或非空
+alter table 表名称 change 字段原名称 字段新名称 字段类型 [是否允许非空]
+
+8.删除某个字段
+ALTER TABLE mytable DROP 字段名;
+
+9.清空表
+delete table t1
+truncate table t1 自增属性从1开始
+
+10.删除表
+drop table t1
+
+
+
+

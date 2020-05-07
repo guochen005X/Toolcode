@@ -1,0 +1,30 @@
+1.sudo apt-get install mysql-server
+2.sudo apt-get install mysql-client
+3.sudo apt-get install libmysqlclient-dev
+
+该命令选则安装：
+sudo mysql_secure_installation
+运行安全脚本，密码检测插件、设置密码
+mysql -V
+显示安装mysql的信息，例如：版本、系统；
+
+查看mysql是否安装成功
+netstat -antp | grep mysql
+
+查看mysql服务运行状态
+service mysql status
+
+服务启动命令
+/etc/init.d/mysql start
+
+服务停止命令
+/etc/init.d/mysql stop
+
+服务重启命令
+/etc/init.d/mysql restart
+
+
+
+
+
+

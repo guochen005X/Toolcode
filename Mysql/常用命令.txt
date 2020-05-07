@@ -1,0 +1,85 @@
+1.使用 root 角色用户登陆数据库
+mysql -u root -p;
+
+2.显示数据库列表
+show databases;
+
+3.创建一个数据库
+create database test;
+
+4.删除一个数据库
+drop database test;
+
+5.创建用户
+CREATE USER 'xiaochun'@'localhost' IDENTIFIED BY '你的高强度密码';#该用户仅能在本机使用
+创建用户名为 xiaochun的用户，并设置密码为 【你的高强度密码】
+# 指定ip：192.118.1.1的用户登录%号代表任意数字
+create user 'alex'@'192.118.1.1' identified by '123';#该用户能在特定ip的主机上使用
+# 指定ip：192.118.1.开头的mjj用户登录
+create user 'alex'@'192.118.1.%' identified by '123';
+# 指定任何ip的mjj用户登录
+create user 'alex'@'%' identified by '123';
+
+6.修改用户
+rename user '用户名'@'IP地址' to '新用户名'@'IP地址';
+
+7.修改密码
+set password for '用户名'@'IP地址'=Password('新密码');
+
+
+8.查看权限
+show grants for 'xiaochun'@'localhost';
+
+显示 spring 用户的权限，由于没有授予权限，可看到默认权限：
+
+// GRANT USAGE ON *.* TO 'xiaochun'@'localhost'
+
+//即  USAGE（只允许登录）
+exit;退出
+输入mysql -u xiaochun -p
+正常情况会报错，因为此时该用户还没有权限设置
+exit
+更换为root用户
+mysql -u root -p
+
+
+9.授予权限：
+//介绍授权命令格式： grant A on B to C
+
+// A：用户操作权限，SELECT，INSERT，UPDATE，privileges，all ，USAGE（只允许登录）
+
+// B：授权对象，*.*  代表所有数据库所有表；也可以指定数据库、数据库下的表
+
+// C：用户名
+
+grant all privileges on spring.* to 'xiaochun'@'localhost';
+
+后者
+grant all privileges on *.* to 'xiaochun'@'localhost';
+
+刷新权限
+flush privileges;
+查看是否授权
+show grants for 'xiaochun'@'localhost';
+
+更换用户登录
+mysql -u xiaochun -p
+#记得密码是你刚刚设置的。
+
+10.取消权限
+# 取消mjj用户对db1的t1文件的任意操作
+revoke all on db1.t1 from 'alex'@"%";
+
+11.进入到mysql数据库下
+mysql> use mysql
+
+12.显示数据库的表单
+show tables
+
+13.查看账号密码
+cd /etc/mysql/
+sudo cat debian.cnf
+
+
+
+
